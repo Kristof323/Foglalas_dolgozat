@@ -1,15 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
+    <title>Szállásfoglalás</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1><%= title %></h1>
-    Hello EJS!
+    <p>Foglalások száma: <%= darab %></p>
+
+    <h1>Szállásfoglalás</h1>
+
+    <% if (hibak.length > 0) { %>
+        <div class="hiba">
+            <% hibak.forEach((h) => { %>
+                <p><%= h %></p>
+            <% }) %>
+        </div>
+    <% } %>
+
+    <% if (siker) { %>
+        <p class="siker">Sikeres foglalás</p>
+    <% } %>
+
+    <form method="post">
+        <label>Név:</label>
+        <input type="text" name="name" value="<%= adat.name %>">
+        <br>
+        <label>E-mail:</label>
+        <input type="text" name="email" value="<%= adat.email %>">
+        <br>
+        <label>Dátum és időpont:</label>
+        <input type="datetime-local" name="startDate" value="<%= adat.startDate %>">
+        <br>
+        <label>Vendégek száma:</label>
+        <input type="number" name="guests" value="<%= adat.guests %>">
+        <br>
+        <button type="submit">Foglalás</button>
+    </form>
 </body>
 </html>

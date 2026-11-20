@@ -1,5 +1,10 @@
-body {
-    background-color: rgb(232, 219, 202);
-    color:rgb(58, 46, 135);
+.hiba {
+    color: red;
+    border: 1px solid red;
+    padding: 5px;
 }
 
+.siker {
+    color: green;
+    font-weight: bold;
+}
